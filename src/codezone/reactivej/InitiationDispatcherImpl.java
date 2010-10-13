@@ -54,6 +54,7 @@ public class InitiationDispatcherImpl implements InitiationDispatcher {
 		boolean hasWritingHandler = hasWritingHandler();
 		
 		while (server.isRunning()) {
+			// TODO seria interessante botar um timeout nesse select
 			if (synchronousEventDemultiplexer.select() > 0 && server.isRunning()) {
 				selectedKeys = synchronousEventDemultiplexer.selectedKeys().iterator();
 				
