@@ -117,6 +117,7 @@ public class HandleImpl implements Handle {
 	}
 
 	public int write(byte[] content) throws IOException {
+        // TODO nao seria melhor ter um while aqui? Porque pode ser que nao escreve "tudo de uma vez"
 		if (isBuffered()) {
 			return writeOnQueue(content);
 		} else {
