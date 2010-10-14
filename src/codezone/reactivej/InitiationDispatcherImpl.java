@@ -62,7 +62,7 @@ public class InitiationDispatcherImpl implements InitiationDispatcher {
 					selectedKey = selectedKeys.next();
 					selectedKeys.remove();
 					
-					// TODO deveria remover chaves invalidas
+					// TODO deveria remover chaves invalidas e nao haver nova checagem a cada evento
 					if (isAcceptable(selectedKey)) {
 						Handle handle = acceptNewSocketChannel();
 						SelectionKey selectionKey = handle.getRegistration();

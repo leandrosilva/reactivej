@@ -102,7 +102,6 @@ public class HandleImpl implements Handle {
 	public byte[] read() throws IOException {
 		ByteBuffer byteBuffer = ByteBuffer.allocate(MAX_CAPACITY_OF_BUFFER);
 
-        // TODO nao seria melhor ter um while aqui? Porque pode ser que nao leia "tudo de uma vez"
 		int numberOfReadBytes = socketChannel.read(byteBuffer);
 		
 		if (numberOfReadBytes == -1) {
@@ -117,7 +116,6 @@ public class HandleImpl implements Handle {
 	}
 
 	public int write(byte[] content) throws IOException {
-        // TODO nao seria melhor ter um while aqui? Porque pode ser que nao escreve "tudo de uma vez"
 		if (isBuffered()) {
 			return writeOnQueue(content);
 		} else {
